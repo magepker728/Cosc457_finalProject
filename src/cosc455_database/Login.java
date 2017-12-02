@@ -43,8 +43,11 @@ PreparedStatement pst = null;
         loginButton = new javax.swing.JButton();
         registerButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setFont(new java.awt.Font("Gill Sans Ultra Bold", 0, 24)); // NOI18N
 
         userNameLabel.setText("Username");
 
@@ -78,6 +81,12 @@ PreparedStatement pst = null;
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cosc455_database/rvicon.png"))); // NOI18N
 
+        jLabel2.setFont(new java.awt.Font("Algerian", 0, 24)); // NOI18N
+        jLabel2.setText("Leo's RV Center");
+
+        jLabel3.setFont(new java.awt.Font("Algerian", 0, 24)); // NOI18N
+        jLabel3.setText("Member Login");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -100,7 +109,15 @@ PreparedStatement pst = null;
                         .addComponent(usernameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(108, 108, 108)
-                        .addComponent(jLabel1)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addComponent(jLabel3))
+                                    .addComponent(jLabel2))))))
                 .addContainerGap(224, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -108,7 +125,11 @@ PreparedStatement pst = null;
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(132, 132, 132)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel3)
+                .addGap(82, 82, 82)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(userNameLabel)
                     .addComponent(usernameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -116,7 +137,7 @@ PreparedStatement pst = null;
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(passwordLabel)
                     .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(loginButton)
                     .addComponent(registerButton))
@@ -137,10 +158,12 @@ PreparedStatement pst = null;
             pst.setString(1, usernameTextField.getText());
             pst.setString(2, passwordField.getText());
             rs = pst.executeQuery();
+            //login successful
             if(rs.next()){
                 System.out.println("Username and Password Matched");
                 Menu_Page menuPage = new Menu_Page();
                 menuPage.setVisible(true);
+                this.setVisible(false);
                 
             }
             else{
@@ -205,6 +228,8 @@ PreparedStatement pst = null;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JButton loginButton;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JLabel passwordLabel;
