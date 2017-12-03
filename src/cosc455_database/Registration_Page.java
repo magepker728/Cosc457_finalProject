@@ -122,6 +122,10 @@ private final String dbPassword = "spooky"; //use your pw
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
         createUser(firstNameField.getText(), lastNameField.getText(), usernameField.getText(), 
                 passwordField.getText());
+        
+        Login login = new Login();
+        login.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_registerButtonActionPerformed
 
     /**

@@ -161,9 +161,9 @@ PreparedStatement pst = null;
             //login successful
             if(rs.next()){
                 System.out.println("Username and Password Matched");
+                this.setVisible(false);
                 Menu_Page menuPage = new Menu_Page();
                 menuPage.setVisible(true);
-                this.setVisible(false);
                 
             }
             else{
@@ -186,6 +186,7 @@ PreparedStatement pst = null;
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
         Registration_Page regPage = new Registration_Page();
         regPage.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_registerButtonActionPerformed
 
     /**
